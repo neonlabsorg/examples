@@ -28,6 +28,7 @@
   > solana airdrop 2
 
 ## Setup Neon account (using Metamask)
+**NOTE: Currently Metamask plugin for Firefox not working with Neon, please use another browser**
 - Connect your metamask wallet to Neon Devnet using this settings:
     - Network Name: Neon Devnet
     - New RPC URL: https://proxy.devnet.neonlabs.org/solana
@@ -37,7 +38,7 @@
 - Airdrop at most 10 NEONs to just created account [from here](https://neonswap.live/#/get-tokens)
 - Copy your Metamask account private key (Account Details >> Export Private Key)
 - Insert just copied private key into quotes in line 15 in file **common.py**
-- Insert just copied private key into quotes in line 5 in file **hardhat.config.py** - **NOTE** Add **0x** prefix in begining
+- Insert just copied private key into quotes in line 5 in file **hardhat.config.js** - **NOTE** Add **0x** prefix in begining
 
 ## Create new token mint
 
