@@ -9,9 +9,5 @@
     "ethers": "^5.5.4",
     "hardhat": "^2.8.4",
     "base58-js": "*"
-  },
-  "dependencies": {
-    "@openzeppelin/contracts": "^4.3.2",
-    "@openzeppelin/contracts-upgradeable": "^4.3.2"
   }
 }
