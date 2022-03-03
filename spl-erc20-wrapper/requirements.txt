@@ -1,0 +1,11 @@
+solana==0.10.0
+eth-keys==0.3.3
+base58
+py-solc-x==1.1.0
+toolz
+web3==5.22.0
+typing-extensions==3.7.4.2
+ecdsa==0.16.0
+pysha3==1.0.2
+rlp
+ethereum
