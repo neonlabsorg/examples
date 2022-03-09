@@ -17,19 +17,20 @@ import json
 import struct
 install_solc(version='0.7.6')
 from solcx import compile_source
+import common
 
 Confirmed = Commitment("confirmed")
 
-EVM_LOADER_ID = PublicKey('eeLSJgWzzxrqKv1UxtRVVH8FX3qCQWUs9QuAjJpETGU')
-NEON_TOKEN_MINT = PublicKey('89dre8rZjLNft7HoupGiyxu3MNftR577ZYu8bHe2kK7g')
+EVM_LOADER_ID = common.selected_network['evm_loader']
+NEON_TOKEN_MINT = common.selected_network['neon_token']
 
 CREATE_ACCOUNT_LAYOUT = Struct(
     "ether" / Bytes(20),
     "nonce" / Int8ul
 )
-
+    
 def create_account_layout(ether, nonce):
-    return bytes.fromhex("0200000000000000000000000000000000000000")+CREATE_ACCOUNT_LAYOUT.build(dict(
+    return bytes.fromhex("18")+CREATE_ACCOUNT_LAYOUT.build(dict(
         ether=ether,
         nonce=nonce
     ))
