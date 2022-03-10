@@ -178,7 +178,6 @@ class ERC20Wrapper:
 
         trx = Transaction()
         neon_acc, nonce = self.eth_to_solana_address(dest_neon)
-        assoc_acc = get_associated_token_address(neon_acc, NEON_TOKEN_MINT)
         if not self.is_account_exist(neon_acc):
             print(f'Destination Neon account {neon_acc} does not exist. It will be created.')
             trx.add(TransactionInstruction(
@@ -186,13 +185,8 @@ class ERC20Wrapper:
                 data=create_account_layout(bytes.fromhex(dest_neon[2:]), nonce),
                 keys=[
                     AccountMeta(pubkey=payer.public_key(), is_signer=True, is_writable=True),
-                    AccountMeta(pubkey=neon_acc, is_signer=False, is_writable=True),
-                    AccountMeta(pubkey=assoc_acc, is_signer=False, is_writable=True),
                     AccountMeta(pubkey=SYS_PROGRAM_ID, is_signer=False, is_writable=False),
-                    AccountMeta(pubkey=NEON_TOKEN_MINT, is_signer=False, is_writable=False),
-                    AccountMeta(pubkey=TOKEN_PROGRAM_ID, is_signer=False, is_writable=False),
-                    AccountMeta(pubkey=ASSOCIATED_TOKEN_PROGRAM_ID, is_signer=False, is_writable=False),
-                    AccountMeta(pubkey=SYSVAR_RENT_PUBKEY, is_signer=False, is_writable=False),
+                    AccountMeta(pubkey=neon_acc, is_signer=False, is_writable=True),
                 ]))
 
         dest_token_account = self.get_wrapped_token_account_address(dest_neon)
