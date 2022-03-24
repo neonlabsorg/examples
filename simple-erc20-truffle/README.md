@@ -1,6 +1,12 @@
 # Example deploying ERC20 to Neonlabs devnet using Truffle
 
-**NOTE** All operations performed from the directory where this README.md file is located
+## Cloning repository
+Run command
+```sh
+git clone https://github.com/neonlabsorg/examples.git
+```
+
+**NOTE** All the next operations must be performed from the **examples/simple-erc20-truffle** directory
 
 ## Installing requirements
 
