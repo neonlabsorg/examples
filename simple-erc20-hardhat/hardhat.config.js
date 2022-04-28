@@ -14,7 +14,7 @@ module.exports = {
       network_id: network_id,
       chainId: network_id,
       gas: 3000000,
-      gasPrice: 1000000000,
+      gasPrice: 445297322800,
       blockGasLimit: 10000000,
       allowUnlimitedContractSize: false,
       timeout: 1000000,
