@@ -18,9 +18,6 @@ networks = {
 
 selected_network = networks['devnet']
 
-print(f"Solana: {selected_network['solana']}")
-print(f"Proxy: {selected_network['proxy']}")
-
 solana_client = SolanaClient(selected_network['solana'])
 neon_client = Web3(Web3.HTTPProvider(selected_network['proxy']))
 

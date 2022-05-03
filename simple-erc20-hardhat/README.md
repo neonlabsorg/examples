@@ -13,7 +13,7 @@ You should have **nodejs** and **npm** package manager installed on your system
     - Chain ID: 245022926
     - Currency Symbol (optional): NEON
 - Create new account in Metamask
-- Airdrop at most 10 NEONs to just created account [from here](https://neonfaucet.org/)
+- Airdrop at most 100 NEONs to just created account [from here](https://neonfaucet.org/)
 - Copy your Metamask account private key (Account Details >> Export Private Key)
 - Insert just copied private key into quotes in line 5 in file **hardhat.config.js** - **NOTE** Add **0x** prefix in beginning
 
