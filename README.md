@@ -18,6 +18,6 @@ All APIs will be available at your localhost by addresses:
 
 Just execute from this directory:
 
-> ./drop_neons.sh <target-eth-address>
+> ./drop_neons.sh &lt;target-eth-address>
 
 **NOTE** Make sure you have **curl** installed in your system
