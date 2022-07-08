@@ -1,0 +1,8 @@
+live:
+- name: neon-devnet
+  networks:
+  - chainid: 245022926
+    host: https://proxy.devnet.neonlabs.org/solana
+    id: neon-devnet
+    name: Neon (devnet)
+
