@@ -1,0 +1,13 @@
+dotenv: .env
+
+
+# networks:
+#   rinkeby:
+#     pool_addr_provider: "0xBA6378f1c1D046e9EB0F538560BA7558546edF3C"
+#     weth: "0xd74047010D77c5901df5b0f9ca518aED56C85e8D"
+#     dai: "0x4aAded56bd7c69861E8654719195fCA9C670EB45"
+#     aDAI: "0x49866611AA7Dc30130Ac6A0DF29217D16FD87bc0"
+#     aWETH: "0x608D11E704baFb68CfEB154bF7Fd641120e33aD4"
+#     wethGateway: "0xD1DECc6502cc690Bc85fAf618Da487d886E54Abe"
+#     dai_eth_data_feed: "0x74825DbC8BF76CC4e9494d0ecB210f676Efa001D"
+#     ui_data_prov: '0x550f9764d56291B5B793b6dD1623af3346128BD2'
