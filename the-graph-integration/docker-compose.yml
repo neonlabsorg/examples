@@ -57,7 +57,7 @@ services:
 
   evm_loader:
     container_name: evm_loader
-    image: neonlabsorg/evm_loader:latest
+    image: neonlabsorg/evm_loader:cbd126668776efe416972adfe81d2496d128101f
     environment:
       - SOLANA_URL=http://validator:8899
     networks:
@@ -91,7 +91,7 @@ services:
       
   dbcreation:
     container_name: dbcreation
-    image: neonlabsorg/proxy:ci-755-return-zero-block
+    image: neonlabsorg/proxy:99cb26b1a8f1f16d715be3e9a0452efbb8e43ad3
     environment:
       SOLANA_URL: http://validator:8899
       POSTGRES_DB: neon-db
@@ -107,7 +107,7 @@ services:
         
   indexer:
     container_name: indexer
-    image: neonlabsorg/proxy:ci-755-return-zero-block
+    image: neonlabsorg/proxy:99cb26b1a8f1f16d715be3e9a0452efbb8e43ad3
     environment:
       SOLANA_URL: http://validator:8899
       POSTGRES_DB: neon-db
@@ -130,7 +130,7 @@ services:
   
   proxy:
     container_name: proxy
-    image: neonlabsorg/proxy:ci-755-return-zero-block
+    image: neonlabsorg/proxy:99cb26b1a8f1f16d715be3e9a0452efbb8e43ad3
     environment:
       SOLANA_URL: http://validator:8899
       FAUCET_URL: http://faucet:3333
@@ -175,7 +175,7 @@ services:
 
   deploy_contracts:
     container_name: deploy_contracts
-    image: neonlabsorg/evm_loader:latest
+    image: neonlabsorg/evm_loader:cbd126668776efe416972adfe81d2496d128101f
     environment:
       - SOLANA_URL=http://validator:8899
       - SPL_TOKEN_AUTHORITY=/opt/contracts/ci-tokens/owner-keypair.json
