@@ -1,0 +1,12 @@
+{
+  "mainnet": {
+    "Gravity": {
+      "address": "0x2E645469f354BB4F5c8a05B3b30A929361cf77eC"
+    }
+  },
+  "neonlabs": {
+    "Gravity": {
+      "address": "0x6B512300632cC616674760f76e31A745a24299c4"
+    }
+  }
+}
