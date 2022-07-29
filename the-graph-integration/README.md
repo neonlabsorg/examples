@@ -15,6 +15,7 @@ Drop tokens to deployer
 
 Compile and deploy smart-contracts
 > truffle compile
+> 
 > truffle migrate --network neonlabs
 
 Create subgraph
