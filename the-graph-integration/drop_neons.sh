@@ -21,3 +21,17 @@ curl --location --request POST 'http://localhost:3333/request_neon' \
 	"amount": 1000
 }'
 
+curl --location --request POST 'http://localhost:3333/request_neon' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+	"wallet":"0xFC12a6fA37668CeD33f3933243a3fFE88C40813C",
+	"amount": 1000
+}'
+
+curl --location --request POST 'http://localhost:3333/request_neon' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+	"wallet":"0x0BC83AB55FdAAf8243868Ef46FC9d1E7F6230Fff",
+	"amount": 1000
+}'
+
