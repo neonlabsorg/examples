@@ -9,3 +9,4 @@ ecdsa==0.16.0
 pysha3==1.0.2
 rlp
 ethereum
+logged-groups==2.1.2
