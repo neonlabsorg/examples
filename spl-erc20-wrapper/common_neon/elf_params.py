@@ -15,23 +15,23 @@ class ElfParams:
 
     def __init__(self):
         self.elf_params = {}
-        read_elf_params(self.elf_params)
+        #read_elf_params(self.elf_params)
 
     @property
     def collateral_pool_base(self) -> Optional[str]:
-        return self.elf_params.get("NEON_POOL_BASE")
+        return self.elf_params.get("NEON_POOL_BASE", "7SBdHNeF9FFYySEoszpjZXXQsAiwa5Lzpsz6nUJWusEx")
 
     @property
     def neon_heap_frame(self) -> int:
-        return int(self.elf_params.get("NEON_HEAP_FRAME"))
+        return int(self.elf_params.get("NEON_HEAP_FRAME", 262144))
 
     @property
     def neon_compute_units(self) -> int:
-        return int(self.elf_params.get("NEON_COMPUTE_UNITS"))
+        return int(self.elf_params.get("NEON_COMPUTE_UNITS", 500000))
 
     @property
     def neon_additional_fee(self):
-        return int(self.elf_params.get("NEON_ADDITIONAL_FEE"))
+        return int(self.elf_params.get("NEON_ADDITIONAL_FEE", 0))
 
     @property
     def neon_token_mint(self) -> PublicKey:
