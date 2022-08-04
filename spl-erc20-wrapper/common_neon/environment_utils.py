@@ -91,8 +91,7 @@ class neon_cli(CliBase):
                    "--commitment=recent",
                    "--url", SOLANA_URL,
                    f"--evm_loader={EVM_LOADER_ID}",
-                   f"--logging_ctx={ctx}",
-                   f"--loglevel={self._emulator_logging_level}"
+                   f"--logging_ctx={ctx}"
                    ]\
                   + (["-vvv"] if LOG_NEON_CLI_DEBUG else [])\
                   + list(args)

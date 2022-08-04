@@ -4,7 +4,7 @@ from typing import Optional
 
 from solana.transaction import TransactionInstruction, Transaction
 from .constants import COMPUTE_BUDGET_ID
-from ..common_neon.elf_params import ElfParams
+from .elf_params import ElfParams
 from typing import Union
 
 

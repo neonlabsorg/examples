@@ -7,7 +7,6 @@ from enum import Enum
 from logged_groups import logged_group
 from eth_utils import big_endian_to_int
 
-from proxy.indexer.utils import SolanaIxSignInfo
 # TODO: move it out from here
 from ..environment_data import EVM_LOADER_ID, LOG_FULL_OBJECT_INFO
 from ..eth_proto import Trx as EthTx
@@ -110,7 +109,7 @@ class NeonTxResultInfo:
         rec['logIndex'] = hex(log_idx)
         self.logs.append(rec)
 
-    def set_result(self, sign: SolanaIxSignInfo, status, gas_used, return_value):
+    def set_result(self, sign, status, gas_used, return_value):
         self.status = status
         self.gas_used = gas_used
         self.return_value = return_value

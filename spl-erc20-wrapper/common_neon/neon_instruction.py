@@ -11,7 +11,7 @@ from solana.transaction import AccountMeta, TransactionInstruction, Transaction
 from spl.token.constants import TOKEN_PROGRAM_ID
 from logged_groups import logged_group
 
-from ..common_neon.elf_params import ElfParams
+from .elf_params import ElfParams
 
 from .address import accountWithSeed, ether2program, EthereumAddress
 from .constants import SYSVAR_INSTRUCTION_PUBKEY, INCINERATOR_PUBKEY, KECCAK_PROGRAM, COLLATERALL_POOL_MAX
@@ -19,7 +19,8 @@ from .layouts import CREATE_ACCOUNT_LAYOUT
 from .eth_proto import Trx as EthTx
 from .environment_data import EVM_LOADER_ID
 from .utils import get_holder_msg
-from ..common_neon.solana_alt import ADDRESS_LOOKUP_TABLE_ID
+
+ADDRESS_LOOKUP_TABLE_ID: PublicKey = PublicKey('AddressLookupTab1e1111111111111111111111111')
 
 
 def create_account_with_seed_layout(base, seed, lamports, space):
