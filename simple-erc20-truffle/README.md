@@ -10,15 +10,22 @@ git clone https://github.com/neonlabsorg/examples.git
 
 ## Installing requirements
 
-1. Install truffle
-```sh
-npm i truffle
-```
-2. Install requirements
+1. Install requirements
 
 ```sh
-npm i
+npm install
 ```
+## Setup Neon account (using Metamask)
+**NOTE: Currently Metamask plugin for Firefox not working with Neon, please use another browser**
+- Connect your metamask wallet to Neon Devnet using these settings:
+    - Network Name: Neon Devnet
+    - New RPC URL: https://devnet.neonevm.org
+    - Chain ID: 245022926
+    - Currency Symbol (optional): NEON
+- Create new account in Metamask
+- Airdrop at most 100 NEONs to just created account [from here](https://neonfaucet.org/)
+- Copy your Metamask account private key (Account Details >> Export Private Key)
+- Insert just copied private key into quotes in line 8 in file **truffle-config.js** - **NOTE** Add **0x** prefix at the beginning
 
 ## Compiling and deploying contract
 
