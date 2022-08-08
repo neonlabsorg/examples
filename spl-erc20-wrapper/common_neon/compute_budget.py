@@ -6,7 +6,6 @@ from solana.transaction import TransactionInstruction, Transaction
 from .constants import COMPUTE_BUDGET_ID
 from .elf_params import ElfParams
 from typing import Union
-from .web3 import NeonWeb3
 
 
 class ComputeBudget:
@@ -28,12 +27,12 @@ class ComputeBudget:
 
 
 class TransactionWithComputeBudget(Transaction):
-    def __init__(self, proxy: NeonWeb3, compute_units: Optional[int] = None, *args, **kwargs):
+    def __init__(self, compute_units: Optional[int] = None, *args, **kwargs):
         Transaction.__init__(self, *args, **kwargs)
-        compute_units = compute_units if compute_units is not None else ElfParams(proxy).neon_compute_units
-        additional_fee = ElfParams(proxy).neon_additional_fee
+        compute_units = compute_units if compute_units is not None else ElfParams().neon_compute_units
+        additional_fee = ElfParams().neon_additional_fee
         self.instructions.append(ComputeBudget.requestUnits(compute_units, additional_fee))
-        heap_frame = ElfParams(proxy).neon_heap_frame
+        heap_frame = ElfParams().neon_heap_frame
         self.instructions.append(ComputeBudget.requestHeapFrame(heap_frame))
 
     def add(self, *args: Union[Transaction, TransactionInstruction]) -> TransactionWithComputeBudget:

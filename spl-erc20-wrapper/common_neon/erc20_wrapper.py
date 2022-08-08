@@ -34,9 +34,12 @@ def get_evm_loader_account_address(eth_address: str, evm_loader: SolanaPublicKey
 class ERC20Wrapper:
     solana: SolanaClient
     proxy: NeonWeb3
+    name: str
+    symbol: str
     token: Token
     evm_loader_id: SolanaPublicKey
-    contract: Dict
+    interface: Dict
+    wrapper: Dict
 
     def __init__(self,
                  solana: SolanaClient,
@@ -114,7 +117,7 @@ class ERC20Wrapper:
         
     def deposit(self, sender: SolanaAccount, receiver: NeonAccount, amount: int):
         from_spl_token_acc = get_associated_token_address(sender.public_key(), self.token.pubkey)
-        trx = TransactionWithComputeBudget(self.proxy)
+        trx = TransactionWithComputeBudget()
 
         acct_info = self.solana.get_account_info(get_evm_loader_account_address(receiver.address, self.evm_loader_id))
         if acct_info is None:
@@ -152,7 +155,7 @@ class ERC20Wrapper:
         # Construct transaction
         # This part of code is based on original implementation of Token.create_associated_token_account
         # except that skip_preflight is set to True
-        tx = TransactionWithComputeBudget(self.proxy)
+        tx = TransactionWithComputeBudget()
         create_ix = spl_token.create_associated_token_account(
             payer=payer.public_key(), owner=owner, mint=self.token.pubkey
         )
@@ -184,7 +187,7 @@ class ERC20Wrapper:
 
         neon = NeonIxBuilder(owner)
         neon.init_operator_ether(EthereumAddress(to_acc.address))
-        neon.init_eth_tx(Trx.fromString(eth_trx), self.proxy)
+        neon.init_eth_tx(Trx.fromString(eth_trx))
         neon.init_eth_accounts(eth_accounts)
         return neon
 

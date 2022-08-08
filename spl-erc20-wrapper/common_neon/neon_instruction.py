@@ -11,8 +11,6 @@ from solana.transaction import AccountMeta, TransactionInstruction, Transaction
 from spl.token.constants import TOKEN_PROGRAM_ID
 from logged_groups import logged_group
 
-from common_neon.web3 import NeonWeb3
-
 from .elf_params import ElfParams
 
 from .address import accountWithSeed, ether2program, EthereumAddress
@@ -96,7 +94,7 @@ class NeonIxBuilder:
     def init_operator_ether(self, operator_ether: EthereumAddress):
         self.operator_neon_address = ether2program(operator_ether)[0]
 
-    def init_eth_tx(self, eth_tx: EthTx, proxy: NeonWeb3):
+    def init_eth_tx(self, eth_tx: EthTx):
         self.eth_tx = eth_tx
 
         self.msg = bytes.fromhex(self.eth_tx.sender()) + self.eth_tx.signature() + self.eth_tx.unsigned_msg()
@@ -105,7 +103,7 @@ class NeonIxBuilder:
         keccak_result = keccak_256(self.eth_tx.unsigned_msg()).digest()
         collateral_pool_index = int().from_bytes(keccak_result[:4], "little") % COLLATERALL_POOL_MAX
         self.collateral_pool_index_buf = collateral_pool_index.to_bytes(4, 'little')
-        self.collateral_pool_address = self.create_collateral_pool_address(collateral_pool_index, proxy)
+        self.collateral_pool_address = self.create_collateral_pool_address(collateral_pool_index)
 
         return self
 
@@ -120,10 +118,10 @@ class NeonIxBuilder:
         return self
 
     @staticmethod
-    def create_collateral_pool_address(collateral_pool_index, proxy: NeonWeb3):
+    def create_collateral_pool_address(collateral_pool_index):
         COLLATERAL_SEED_PREFIX = "collateral_seed_"
         seed = COLLATERAL_SEED_PREFIX + str(collateral_pool_index)
-        collateral_pool_base = PublicKey(ElfParams(proxy).collateral_pool_base)
+        collateral_pool_base = PublicKey(ElfParams().collateral_pool_base)
         return accountWithSeed(bytes(collateral_pool_base), str.encode(seed))
 
     def create_account_with_seed_instruction(self, account, seed, lamports, space) -> TransactionInstruction:
