@@ -8,30 +8,34 @@ from singleton_decorator import singleton
 from solana.publickey import PublicKey
 
 from .environment_utils import neon_cli
+from .web3 import NeonWeb3
 
 
 @singleton
 class ElfParams:
 
-    def __init__(self):
+    def __init__(self, neon_client: NeonWeb3 = None):
         self.elf_params = {}
-        #read_elf_params(self.elf_params)
+        if neon_client is None:
+            read_elf_params_from_cli(self.elf_params)
+        else:
+            read_elf_params_from_neon_proxy(self.elf_params, neon_client)
 
     @property
     def collateral_pool_base(self) -> Optional[str]:
-        return self.elf_params.get("NEON_POOL_BASE", "7SBdHNeF9FFYySEoszpjZXXQsAiwa5Lzpsz6nUJWusEx")
+        return self.elf_params.get("NEON_POOL_BASE")
 
     @property
     def neon_heap_frame(self) -> int:
-        return int(self.elf_params.get("NEON_HEAP_FRAME", 262144))
+        return int(self.elf_params.get("NEON_HEAP_FRAME"))
 
     @property
     def neon_compute_units(self) -> int:
-        return int(self.elf_params.get("NEON_COMPUTE_UNITS", 500000))
+        return int(self.elf_params.get("NEON_COMPUTE_UNITS"))
 
     @property
     def neon_additional_fee(self):
-        return int(self.elf_params.get("NEON_ADDITIONAL_FEE", 0))
+        return int(self.elf_params.get("NEON_ADDITIONAL_FEE"))
 
     @property
     def neon_token_mint(self) -> PublicKey:
@@ -75,10 +79,17 @@ class ElfParams:
 
 
 @logged_group("neon.Proxy")
-def read_elf_params(out_dict, *, logger):
+def read_elf_params_from_cli(out_dict, *, logger):
     logger.debug("Read ELF params")
     for param in neon_cli().call("neon-elf-params").splitlines():
         if param.startswith('NEON_') and '=' in param:
             v = param.split('=')
             out_dict[v[0]] = v[1]
             logger.debug(f"ELF param: {v[0]}: {v[1]}")
+
+@logged_group("neon.Proxy")
+def read_elf_params_from_neon_proxy(out_dict, neon_client: NeonWeb3, logger):
+    print("Read ELF params")
+    out_dict = neon_client.neon.getEvmParams()
+    for key, value in out_dict.items():
+        print(f"ELF param: {key}: {value}")
