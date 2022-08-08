@@ -4,11 +4,15 @@ os.environ['SOLANA_URL'] = str(selected_network['solana'])
 os.environ['EVM_LOADER'] = str(selected_network['evm_loader'])
 os.environ["NEON_CLI_TIMEOUT"] = "5.0"
 
-from common_neon.deposit_erc20 import TokenGate
 from solana.publickey import PublicKey
 import sys
 import json
 from solana.account import Account as SolanaAccount
+from spl.token.client import Token as SplToken
+from spl.token.constants import TOKEN_PROGRAM_ID
+from common_neon.erc20_wrapper import ERC20Wrapper
+from solana.publickey import PublicKey as SolanaPublicKey
+from common_neon.environment_data import EVM_LOADER_ID
 
 # USDT
 # python3 ./deposit_token.py 3vxj94fSd3jrhaGAwaEKGDPEwn5Yqs81Ay5j1BcdMqSZ ~/.config/solana/id.json 0x42679bb84732ca108204abdd4841a716ba43593cba16a61f3289c0842e2f5e42 0x5EE2CDe31b5d88A0574DAD2B4bb6A073A5b228a8
@@ -23,11 +27,14 @@ if __name__ == "__main__":
         d = json.load(f)
     solana_account = SolanaAccount(d[0:32])
 
-    token_gate = TokenGate(
+
+    token = SplToken(solana_client, token_mint, TOKEN_PROGRAM_ID, None)
+    wrapper: ERC20Wrapper = ERC20Wrapper.from_address(
         solana_client, 
         neon_client, 
-        token_mint, 
+        token, 
+        SolanaPublicKey(EVM_LOADER_ID), 
         wrapper_address
     )
 
-    token_gate.deposit_erc20(solana_account, neon_account)
+    print(wrapper.deposit(solana_account, neon_account, 123456))
