@@ -120,7 +120,6 @@ class ERC20Wrapper:
         trx = TransactionWithComputeBudget()
 
         acct_info = self.solana.get_account_info(get_evm_loader_account_address(receiver.address, self.evm_loader_id)[0])
-        print(f"Account info: {acct_info}")
         if acct_info['result']['value'] is None:
             trx.add(self._create_account_instruction(receiver.address, sender.public_key()))
 
