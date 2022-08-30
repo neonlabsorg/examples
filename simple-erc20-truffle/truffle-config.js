@@ -12,7 +12,7 @@ module.exports = {
     neonlabs: {
       provider: () => {
         return new HDWalletProvider(
-          privateKey,
+          [ privateKey ],
           provider,
         );
       },
