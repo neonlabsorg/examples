@@ -59,15 +59,22 @@ Using network 'neonlabs'.
 
 Compiling your contracts...
 ===========================
-> Everything is up to date, there is nothing to compile.
+✔ Fetching solc version list from solc-bin. Attempt #1
+✔ Downloading compiler. Attempt #1.
+✔ Fetching solc version list from solc-bin. Attempt #1
+> Compiling ./contracts/ERC20.sol
+> Compiling ./contracts/IERC20.sol
+> Artifacts written to /tmp/test--947955-ciBGiafT1chM
+> Compiled successfully using:
+   - solc: 0.8.16+commit.07a7930e.Emscripten.clang
 
 
   Contract: TestERC20
-    ✓ should successfully mint 10000 ERC20 in the first account (5308ms)
-    ✓ should transfer token correctly (10426ms)
+    ✓ should successfully mint 10000 ERC20 in the first account (5288ms)
+    ✓ should transfer token correctly (7335ms)
 
 
-  2 passing (16s)
+  2 passing (13s)
 
 ```
 
