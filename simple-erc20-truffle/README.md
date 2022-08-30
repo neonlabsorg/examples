@@ -15,6 +15,13 @@ git clone https://github.com/neonlabsorg/examples.git
 ```sh
 npm install
 ```
+
+**NOTE** In case of error try to execute:
+```sh
+npm cache clear --force
+```
+and then back to previous command
+
 ## Setup Neon account (using Metamask)
 **NOTE: Currently Metamask plugin for Firefox not working with Neon, please use another browser**
 - Connect your metamask wallet to Neon Devnet using these settings:
