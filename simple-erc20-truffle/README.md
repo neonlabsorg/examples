@@ -45,7 +45,7 @@ To create new accounts:
 Execute command
 
 ```sh
-truffle test --network neonlabs
+./node_modules/.bin/truffle test --network neonlabs
 ```
 
 This command will do next:
@@ -83,11 +83,11 @@ Compiling your contracts...
 
 1. Compiling contract
 ```sh
-truffle compile
+./node_modules/.bin/truffle compile
 ```
 3. Deploying contract
 ```sh
-truffle migrate --network neonlabs
+./node_modules/.bin/truffle migrate --network neonlabs
 ```
 
 After successfully running this step you should get console output similar to:
