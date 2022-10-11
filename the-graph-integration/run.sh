@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -z "$GRAPH_ACCESS_TOKEN" ]; then
-   echo "CONTRACT_DEPLOYER_PRIVATE_KEY is not set"
+   echo "GRAPH_ACCESS_TOKEN is not set"
 fi
 
 yarn -i
