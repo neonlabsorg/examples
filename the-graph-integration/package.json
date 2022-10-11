@@ -5,10 +5,12 @@
     "build-contract": "solc contracts/Gravity.sol --abi -o abis --overwrite && solc contracts/Gravity.sol --bin -o bin --overwrite",
     "create": "graph create neonlabs/example-subgraph --node https://api.thegraph.com/deploy/",
     "create-local": "graph create neonlabs/example-subgraph --node http://127.0.0.1:8020",
+    "create-neon": "graph create neonlabs/example-subgraph --node https://graph.neontest.xyz/deploy/ --access-token $GRAPH_ACCESS_TOKEN",
     "codegen": "graph codegen",
     "build": "graph build",
     "deploy": "graph deploy neonlabs/example-subgraph --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
-    "deploy-local": "graph deploy neonlabs/example-subgraph --ipfs http://127.0.0.1:5001 --node http://127.0.0.1:8020"
+    "deploy-local": "graph deploy neonlabs/example-subgraph --ipfs http://127.0.0.1:5001 --node http://127.0.0.1:8020",
+    "deploy-neon": "graph deploy neonlabs/example-subgraph --ipfs https://graph.neontest.xyz/ipfs/ --node https://graph.neontest.xyz/deploy/ --deploy-key $GRAPH_ACCESS_TOKEN"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "^0.28.1",
