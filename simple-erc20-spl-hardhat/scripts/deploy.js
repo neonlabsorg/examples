@@ -3,19 +3,23 @@ const hre = require("hardhat");
 async function main() {
   const [deployer] = await ethers.getSigners();
   console.log("Deploying contracts with the account:", deployer.address);
+  const ERC20 = await hre.ethers.getContractFactory("ERC20ForSplMintable");
+  const erc20_for_spl = await ERC20.deploy(
+    "Test token",
+    "TPL",
+    9,
+    deployer.address
+  );
 
-  const ERC20 = await hre.ethers.getContractFactory("ERC20");
-  const erc20 = await ERC20.deploy();
-
-  await erc20.deployed();
-  console.log("Contract address is: ", erc20.address);
+  await erc20_for_spl.deployed();
+  console.log("Contract address is: ", erc20_for_spl.address);
 
   const amount = 100 * 10 ** 9;
   console.log("Minting ", amount, " tokens...");
-  await erc20.mint(amount);
+  await erc20_for_spl.mint(deployer.address, amount);
   console.log(
     "Balance of deployer is: ",
-    await erc20.balanceOf(deployer.address)
+    await erc20_for_spl.balanceOf(deployer.address)
   );
 }
 

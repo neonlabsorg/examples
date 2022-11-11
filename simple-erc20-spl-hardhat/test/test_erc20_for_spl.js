@@ -56,7 +56,7 @@ describe("Testing erc20_for_SPL contract", function () {
 
   it("should return token symbol", async () => {
     let symbol = await erc20Instance.symbol();
-    assert.equal(symbol, "TPL");
+    assert.equal(symbol, "TPL", "Symbol is not correct");
   });
 
   it("should successfully mint 10000 ERC20 in the first account", async () => {
@@ -139,6 +139,6 @@ describe("Testing erc20_for_SPL contract", function () {
     );
     const totalSupply = await erc20Instance.totalSupply();
 
-    assert.equal(totalSupply, mintAmount);
+    assert.equal(totalSupply, mintAmount, "Total supply is not correct");
   });
 });

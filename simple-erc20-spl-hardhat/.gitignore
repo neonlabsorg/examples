@@ -1,0 +1,6 @@
+test-token-mint.json
+venv/*
+__pycache__/*
+node_modules/*
+artifacts/*
+cache/*
