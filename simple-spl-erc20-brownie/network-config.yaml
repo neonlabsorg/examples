@@ -1,8 +1,7 @@
 live:
-- name: neon-devnet
+- name: Neon
   networks:
   - chainid: 245022926
     host: https://devnet.neonevm.org
     id: neon-devnet
-    name: Neon (devnet)
-
+    name: Devnet
