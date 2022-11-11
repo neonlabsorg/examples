@@ -17,10 +17,6 @@ async function main() {
   const amount = 100 * 10 ** 9;
   console.log("Minting ", amount, " tokens...");
   await erc20_for_spl.mint(deployer.address, amount);
-  console.log(
-    "Balance of deployer is: ",
-    await erc20_for_spl.balanceOf(deployer.address)
-  );
 }
 
 main().catch((error) => {

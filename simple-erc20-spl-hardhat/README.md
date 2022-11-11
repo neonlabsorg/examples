@@ -1,6 +1,6 @@
-# Example deploying ERC20ForSplMintable to Neonlabs devnet using Hardhat
+# Example deploying ERC-20 for SPL contract to Neonlabs devnet using Hardhat
 
-This directory contains all the files necessary to deploy ERC20ForSplMintable contract using Neon onto the Solana blockchain.
+This directory contains all the files necessary to deploy [ERC-20 for SPL](https://docs.neon-labs.org/docs/developing/deploy_facilities/interacting_with_spl_tokens) contract using Neon onto the Solana blockchain.
 
 ## Cloning repository
 
@@ -46,12 +46,12 @@ To create new accounts:
 3. Copy your Metamask account's private keys (Account Details >> Export Private Key) and insert them into **hardhat.config.js**
    at lines 9 (**account #1**) and line 10 (**account #2**) **NOTE!** Add **0x** prefix at the beginning
 
-## Running tests on denvet
+## Running tests on devnet
 
 Execute command
 
 ```sh
-./node_modules/.bin/hardhat test
+npx hardhat test
 ```
 
 This command will do next:
@@ -83,13 +83,13 @@ Compiled 3 Solidity files successfully
 1. Compiling contract
 
 ```sh
-./node_modules/.bin/hardhat compile
+npm hardhat compile
 ```
 
 3. Deploying contract
 
 ```sh
-./node_modules/.bin/hardhat run ./scripts/deploy.js
+npx hardhat run ./scripts/deploy.js
 ```
 
 After successfully running this step you should get console output similar to:
@@ -103,8 +103,8 @@ Minting  100000000000  tokens...
 
 This project contains only one deployment script which performs two actions:
 
-1. Deploying test ERC20 smart-contract
-2. Minting 100 TPL token
+1. Deploying test ERC20 for SPL smart-contract
+2. Minting 100000000000 TPL token
    to **account #1** specified in **hardhat.config.js** file on line 9
 
 In migration command output, in the line `Contract address is: 0x49DCDEc367bba4271876259AE473890aa5AABc2e` is our
