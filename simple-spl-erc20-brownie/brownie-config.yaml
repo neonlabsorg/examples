@@ -3,7 +3,7 @@ networks:
     default: neon-devnet
     neon-devnet:
         chainid: 245022926
-        host: https://devnet.neonevmfr.org
+        host: https://devnet.neonevm.org
         id: neon-devnet
         name: Devnet
         default_contract_owner: false
