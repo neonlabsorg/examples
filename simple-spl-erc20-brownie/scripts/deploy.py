@@ -30,7 +30,7 @@ def deploy_from_factory(
 def main():
     amount = pow(10, 4)
     sender = os.environ.get("ACC1") or network.accounts.add()
-    Faucet(FAUCET_URL).request_neon(sender.address, amount)
+    Faucet(FAUCET_URL).request_neon(sender.address)
     print(f"{sender.address} Neon balance `{sender.balance()}`")
     recipient = os.environ.get("ACC2") or network.accounts.add()
     contract = deploy_from_factory(sender, contract_factory)

@@ -7,12 +7,12 @@ import pytest
 from brownie import ERC20ForSplMintable as contract_factory
 from brownie import network
 
-from ..utils import Faucet
+from scripts.utils import Faucet
 
 FAUCET_URL = os.environ["FAUCET_URL"]
 
 
-@pytest.fixture
+@pytest.fixture(scope='session')
 def faucet() -> Faucet:
     return Faucet(FAUCET_URL)
 
@@ -22,9 +22,8 @@ def sender(faucet: Faucet) -> network.account.LocalAccount:
     """Create tokens sender account"""
     account = network.accounts.add()
     print(f"request neon for {account.address[:10]}")
-    amount = pow(10, 4)
+    amount = pow(10, 3)
     faucet.request_neon(account.address, amount)
-    assert account.balance() == amount
     return account
 
 
