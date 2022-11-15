@@ -11,5 +11,6 @@ class Faucet:
         response = self._session.post(
             self._url, json={"amount": amount, "wallet": account}
         )
-        response.raise_for_status()
+        assert response.ok, f"Faucet returned error: {response.text}"
         time.sleep(3)
+        return response
