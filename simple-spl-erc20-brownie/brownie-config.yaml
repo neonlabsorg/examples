@@ -1,0 +1,15 @@
+dotenv: .env
+networks:
+    default: neon-devnet
+    neon-devnet:
+        chainid: 245022926
+        host: https://devnet.neonevm.org
+        id: neon-devnet
+        name: Devnet
+        default_contract_owner: false
+        gas_buffer: 1.1
+        gas_limit: auto
+        gas_price: auto
+        max_fee: null
+        priority_fee: null
+        reverting_tx_gas_limit: false
