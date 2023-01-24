@@ -53,14 +53,14 @@ contract("ERC20ForSplMintable", (accounts) => {
 
   it("should check total supply", async () => {
     const mintAmount = 20000
-    const b = await erc20SplInstance.mint(accounts[0], mintAmount)
-    console.log("mint: ", JSON.stringify(b))
+    const balanceBefore = parseInt(await erc20SplInstance.balanceOf.call(accounts[0]));
 
-    const totalSupply = await erc20SplInstance.totalSupply.call();
-    console.log("totalSupply: ", JSON.stringify(totalSupply))
+    await erc20SplInstance.mint(accounts[0], mintAmount)
+
+    const totalSupply = parseInt(await erc20SplInstance.totalSupply.call());
 
     assert.equal(
-      mintAmount,
+      balanceBefore.valueOf() + mintAmount,
       totalSupply.valueOf(),
       "Total supply does not match"
     );
@@ -92,7 +92,7 @@ contract("ERC20ForSplMintable", (accounts) => {
     await erc20SplInstance.mint(accounts[0], mintAmount);
 
     const balanceOneBefore = await erc20SplInstance.balanceOf.call(accounts[0]);
-    const balanceTwoBefore = await erc20SplInstance.balanceOf.call(accounts[1]);
+    const balanceTwoBefore = parseInt(await erc20SplInstance.balanceOf.call(accounts[1]));
 
     await erc20SplInstance.transfer(accounts[1], transferAmount, { from: accounts[0] });
 
