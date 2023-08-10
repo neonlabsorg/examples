@@ -1,0 +1,6 @@
+[submodule "simple-erc20-foundry/lib/forge-std"]
+	path = simple-erc20-foundry/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "simple-erc20-foundry/lib/openzeppelin-contracts"]
+	path = simple-erc20-foundry/lib/openzeppelin-contracts
+	url = https://github.com/openzeppelin/openzeppelin-contracts
