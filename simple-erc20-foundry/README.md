@@ -24,8 +24,10 @@ foundryup
 Run command
 
 ```sh
-git clone https://github.com/sukanyaparashar/simple-erc20-foundry.git
+git clone https://github.com/neonlabsorg/examples.git
 ```
+
+**NOTE** All the next operations must be performed from the **examples/simple-erc20-foundry** directory
 
 ## Setup Neon account (using Metamask)
 
