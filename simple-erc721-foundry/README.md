@@ -1,66 +1,62 @@
-## Foundry
+# Example deploying ERC721 to Neon Labs Devnet using Foundry
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+This directory contains all the files necessary to deploy simplest ERC721-like contract using Neon onto the Solana blockchain.
 
-Foundry consists of:
+## Prerequisites
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+To use this project, Rust and Foundry must be installed on the machine.
 
-## Documentation
+### Rust installation
 
-https://book.getfoundry.sh/
-
-## Usage
-
-### Build
-
-```shell
-$ forge build
+```sh
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
-### Test
+### Foundry installation
 
-```shell
-$ forge test
+```sh
+curl -L https://foundry.paradigm.xyz | bash
+foundryup
 ```
 
-### Format
+## Cloning repository
 
-```shell
-$ forge fmt
+Run command
+
+```sh
+git clone https://github.com/neonlabsorg/examples.git
 ```
 
-### Gas Snapshots
+**NOTE** All the next operations must be performed from the **examples/simple-erc721-foundry** directory
 
-```shell
-$ forge snapshot
+## Setup Neon account (using Metamask)
+
+To create new account:
+
+1. Setup your Metamask wallet to work with Neon devnet:
+
+   - Connect your metamask wallet to Neon Devnet using these settings:
+     - Network Name: Neon Devnet
+     - New RPC URL: https://devnet.neonevm.org
+     - Chain ID: 245022926
+     - Currency Symbol (optional): NEON
+
+2. Create a new account in Metamask
+3. Airdrop at most 100 NEONs to just created **account #1** [from here](https://neonfaucet.org/)
+4. Copy your Metamask account's private key (Account Details >> Export Private Key) and insert them into **.env**
+   **NOTE!** Add **0x** prefix at the beginning
+
+## Set up .env file
+
+Create a .env file in the root project folder and add these lines -
+
+```sh
+RPC_URL=https://devnet.neonevm.org
+PRIVATE_KEY=<YOUR_PRIVATE_KEY>
 ```
 
-### Anvil
+Then run this -
 
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
+```sh
+source .env
 ```
