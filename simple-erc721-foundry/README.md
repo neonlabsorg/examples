@@ -120,6 +120,12 @@ Transaction hash: 0x3c81a82ae5a1ae099c1828d21fc10554ae1dc3886bfedeea4df92e09e28b
 cast send <contract_address> --rpc-url $RPC_URL --private-key $PRIVATE_KEY "safeMint(address,string)" <deployer_address> <token_metadata_uri> --legacy
 ```
 
+**NOTE!** This directory includes a sample token metadata file "tokenUri.json". You can use something similar to this.
+
+1. Upload a token image file to IPFS (using Pinata).
+2. Replace the description, image and name in the "tokenUri.json" file with your own data and upload the json file to the same location as your image file.
+3. Use this metadata URI for minting the NFT token.
+
 After successfully running this step you should get console output similar to:
 
 ```sh
