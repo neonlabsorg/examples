@@ -2,6 +2,9 @@
 cache/
 out/
 
+# Library files
+lib/
+
 # Ignores development broadcast logs
 !/broadcast
 /broadcast/*/31337/
