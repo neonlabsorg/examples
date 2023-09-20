@@ -3,8 +3,10 @@ const HDWalletProvider = require("@truffle/hdwallet-provider");
 
 Web3.providers.HttpProvider.prototype.sendAsync = Web3.providers.HttpProvider.prototype.send
 
-const provider = new Web3.providers.HttpProvider("http://127.0.0.1:9090");
+const neon_devnet = "https://devnet.neonevm.org"
+const provider = new Web3.providers.HttpProvider(neon_devnet);
 
+// Change these private keys with your own ones.
 const privateKeys = [
   '0xf5c746b15e3bdd6bf8c516031a15de16ea161ce10552635abb27c9bd16e0a04a',
   '0xf5cc5e36108264bc26e33616287a34eeaab06bffc6890e7db40d53e7821b382a',

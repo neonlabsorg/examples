@@ -2,7 +2,30 @@
 
 An example to help you get started with The Graph. For more information see the docs on https://thegraph.com/docs/.
 
-# Steps
+# Running on Neon devnet
+Install dependencies
+> yarn -i
+
+Compile and deploy smart-contracts
+> truffle compile
+> 
+> truffle migrate --network neonlabs
+
+Create subgraph
+> yarn create-neon
+
+Generate code
+> yarn codegen
+
+Build graph
+> yarn build
+
+Deploy subgraph
+> yarn deploy-neon
+
+Go to https://ch2-graph.neontest.xyz/subgraphs/name/neonlabs/example-subgraph to execute some queries
+
+# Running on local environment
 
 Install dependencies
 > yarn -i
