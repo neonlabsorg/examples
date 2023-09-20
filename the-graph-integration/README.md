@@ -17,6 +17,9 @@ Create subgraph
 Generate code
 > yarn codegen
 
+Build graph
+> yarn build
+
 Deploy subgraph
 > yarn deploy-neon
 
