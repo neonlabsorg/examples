@@ -1,4 +1,4 @@
-# Example deploying ERC20 to Neonlabs devnet using Foundry
+# Example deploying ERC20 to Neon Labs Devnet using Foundry
 
 This directory contains all the files necessary to deploy simplest ERC20-like contract using Neon onto the Solana blockchain.
 
@@ -27,7 +27,15 @@ Run command
 git clone https://github.com/neonlabsorg/examples.git
 ```
 
-**NOTE** All the next operations must be performed from the **examples/simple-erc20-foundry** directory
+**NOTE** All the next operations must be performed from the **examples/simple-erc20-foundry** directory.
+
+## Install the required libraries
+
+```sh
+cd simple-erc20-foundry
+forge install foundry-rs/forge-std --no-commit
+forge install openzeppelin/openzeppelin-contracts --no-commit
+```
 
 ## Setup Neon account (using Metamask)
 
