@@ -12,7 +12,12 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "create-neon": "graph create neonlabs/test-subgraph-neon --node https://ch2-graph.neontest.xyz/deploy/",
+    "create": "graph create neonlabs/test-subgraph-neon --node https://api.thegraph.com/deploy/",
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy-neon": "graph deploy neonlabs/test-subgraph-neon --ipfs https://ch-ipfs.neontest.xyz --node https://ch2-graph.neontest.xyz/deploy/ --version-label=v0.0.1",
+    "deploy": "graph deploy neonlabs/test-subgraph-neon --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/"
   },
   "author": "",
   "license": "ISC",
