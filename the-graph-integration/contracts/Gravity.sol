@@ -1,4 +1,5 @@
-pragma solidity ^0.4.0;
+//SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.7.6;
 
 contract GravatarRegistry {
   event NewGravatar(uint id, address owner, string displayName, string imageUrl);
@@ -15,9 +16,13 @@ contract GravatarRegistry {
   mapping (uint => address) public gravatarToOwner;
   mapping (address => uint) public ownerToGravatar;
 
-  function createGravatar(string _displayName, string _imageUrl) public {
+  function createGravatar(string memory _displayName, string memory _imageUrl) public {
     require(ownerToGravatar[msg.sender] == 0);
-    uint id = gravatars.push(Gravatar(msg.sender, _displayName, _imageUrl)) - 1;
+
+    Gravatar memory newGravatar = Gravatar(msg.sender, _displayName, _imageUrl);
+    uint id = gravatars.length;
+    gravatars.push(newGravatar);
+    id = id - 1;
 
     gravatarToOwner[id] = msg.sender;
     ownerToGravatar[msg.sender] = id;
@@ -25,12 +30,12 @@ contract GravatarRegistry {
     emit NewGravatar(id, msg.sender, _displayName, _imageUrl);
   }
 
-  function getGravatar(address owner) public view returns (string, string) {
+  function getGravatar(address owner) public view returns (string memory, string memory) {
     uint id = ownerToGravatar[owner];
     return (gravatars[id].displayName, gravatars[id].imageUrl);
   }
 
-  function updateGravatarName(string _displayName) public {
+  function updateGravatarName(string memory _displayName) public {
     require(ownerToGravatar[msg.sender] != 0);
     require(msg.sender == gravatars[ownerToGravatar[msg.sender]].owner);
 
@@ -40,7 +45,7 @@ contract GravatarRegistry {
     emit UpdatedGravatar(id, msg.sender, _displayName, gravatars[id].imageUrl);
   }
 
-  function updateGravatarImage(string _imageUrl) public {
+  function updateGravatarImage(string memory _imageUrl) public {
     require(ownerToGravatar[msg.sender] != 0);
     require(msg.sender == gravatars[ownerToGravatar[msg.sender]].owner);
 
@@ -57,7 +62,7 @@ contract GravatarRegistry {
   // dani will invoke this function once when this contract is deployed
   // but then no more
   function setMythicalGravatar() public {
-    require(msg.sender == 0x8d3e809Fbd258083a5Ba004a527159Da535c8abA);
-    gravatars.push(Gravatar(0x0, " ", " "));
+    require(msg.sender == 0x9CE2A03A7a258fB96d04Afb8Dd84b69A748B5959);
+    gravatars.push(Gravatar(address(0), " ", " "));
   }
 }

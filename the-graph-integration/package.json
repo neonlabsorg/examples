@@ -1,22 +1,20 @@
 {
-  "name": "example-subgraph",
-  "version": "0.1.0",
-  "scripts": {
-    "build-contract": "solc contracts/Gravity.sol --abi -o abis --overwrite && solc contracts/Gravity.sol --bin -o bin --overwrite",
-    "create": "graph create neonlabs/example-subgraph --node https://api.thegraph.com/deploy/",
-    "create-local": "graph create neonlabs/example-subgraph --node http://127.0.0.1:8020",
-    "codegen": "graph codegen",
-    "build": "graph build",
-    "deploy": "graph deploy neonlabs/example-subgraph --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
-    "deploy-local": "graph deploy neonlabs/example-subgraph --ipfs http://127.0.0.1:5001 --node http://127.0.0.1:8020"
-  },
-  "devDependencies": {
-    "@graphprotocol/graph-cli": "^0.28.1",
-    "@graphprotocol/graph-ts": "^0.26.0"
-  },
   "dependencies": {
-    "@truffle/hdwallet-provider": "^2.0.4",
-    "truffle": "^5.5.5",
-    "web3": "^1.7.1"
-  }
+    "@graphprotocol/graph-ts": "^0.31.0",
+    "@truffle/hdwallet-provider": "^2.1.14",
+    "dotenv": "^16.3.1",
+    "truffle": "^5.9.0"
+  },
+  "name": "the-graph-integration",
+  "version": "1.0.0",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
